@@ -1,0 +1,225 @@
+{
+  "contractName": "TokenFarma",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Filip/Desktop/BlockApp/src/contracts/TokenFarma.sol\":\"TokenFarma\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Filip/Desktop/BlockApp/src/contracts/TokenFarma.sol\":{\"keccak256\":\"0x290d3e3fab4155d9b9fd81337e7b74f936d515b2b3c0d0ea9f9a2a2afb03ea93\",\"urls\":[\"bzz-raw://c3c385c12b9ea00c5834976555c17f595e63ac92570875c5deb2e5d1c4995b33\",\"dweb:/ipfs/Qmd3WViES4viGwAQxyd9wCCxB4o1eX9y6XkBoXRxGCukjD\"]}},\"version\":1}",
+  "bytecode": "0x60806040526040518060400160405280601081526020017f4461707020746f6b656e206661726d61000000000000000000000000000000008152506000908051906020019061004f929190610062565b5034801561005c57600080fd5b50610107565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100a357805160ff19168380011785556100d1565b828001600101855582156100d1579182015b828111156100d05782518255916020019190600101906100b5565b5b5090506100de91906100e2565b5090565b61010491905b808211156101005760008160009055506001016100e8565b5090565b90565b610186806101166000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806306fdde0314610030575b600080fd5b6100386100b3565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561007857808201518184015260208101905061005d565b50505050905090810190601f1680156100a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101495780601f1061011e57610100808354040283529160200191610149565b820191906000526020600020905b81548152906001019060200180831161012c57829003601f168201915b50505050508156fea265627a7a723158207c417a5931ee0c8295cc31305ce46577ed589e7aaef893f6491ee4430317d9ba64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c806306fdde0314610030575b600080fd5b6100386100b3565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561007857808201518184015260208101905061005d565b50505050905090810190601f1680156100a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101495780601f1061011e57610100808354040283529160200191610149565b820191906000526020600020905b81548152906001019060200180831161012c57829003601f168201915b50505050508156fea265627a7a723158207c417a5931ee0c8295cc31305ce46577ed589e7aaef893f6491ee4430317d9ba64736f6c63430005100032",
+  "sourceMap": "28:115:3:-;;;100:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;28:115;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:115:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "28:115:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:115:3;;;;;;;;;;;;;;;;;;;100:39;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;100:39:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity  ^0.5.0;\r\n\r\ncontract TokenFarma{ //Pametni ugovor\r\n // Cijeli kod ide ovdije\r\n\r\n    string public name = \"Dapp token farma\";\r\n}\r\n",
+  "sourcePath": "C:/Users/Filip/Desktop/BlockApp/src/contracts/TokenFarma.sol",
+  "ast": {
+    "absolutePath": "/C/Users/Filip/Desktop/BlockApp/src/contracts/TokenFarma.sol",
+    "exportedSymbols": {
+      "TokenFarma": [
+        424
+      ]
+    },
+    "id": 425,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 420,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 424,
+        "linearizedBaseContracts": [
+          424
+        ],
+        "name": "TokenFarma",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 423,
+            "name": "name",
+            "nodeType": "VariableDeclaration",
+            "scope": 424,
+            "src": "100:39:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 421,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "100:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "4461707020746f6b656e206661726d61",
+              "id": 422,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "121:18:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_f13c496f811d6bb75743ceb4ea50931855b8149e18dabb36d90fa40554e89112",
+                "typeString": "literal_string \"Dapp token farma\""
+              },
+              "value": "Dapp token farma"
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 425,
+        "src": "28:115:3"
+      }
+    ],
+    "src": "0:145:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/C/Users/Filip/Desktop/BlockApp/src/contracts/TokenFarma.sol",
+      "exportedSymbols": {
+        "TokenFarma": [
+          424
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 420,
+        "name": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            424
+          ],
+          "name": "TokenFarma",
+          "scope": 425
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "name",
+              "scope": 424,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 421,
+                "name": "ElementaryTypeName",
+                "src": "100:6:3"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "4461707020746f6b656e206661726d61",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \"Dapp token farma\"",
+                  "value": "Dapp token farma"
+                },
+                "id": 422,
+                "name": "Literal",
+                "src": "121:18:3"
+              }
+            ],
+            "id": 423,
+            "name": "VariableDeclaration",
+            "src": "100:39:3"
+          }
+        ],
+        "id": 424,
+        "name": "ContractDefinition",
+        "src": "28:115:3"
+      }
+    ],
+    "id": 425,
+    "name": "SourceUnit",
+    "src": "0:145:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xf8f973694A875Cc9c13592778725C01732196077",
+      "transactionHash": "0x3b2a330967bddd4327e3aeb1b553084a3e0e16f5c6da73d7c2a242fd7a6fc6eb"
+    }
+  },
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-04-07T14:40:34.660Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
