@@ -60,7 +60,7 @@ contract TokenFarma{ //Pametni ugovor
         isStaking[msg.sender] = false;
     }
 
-    // davanje tokena
+    // davanje TokenFarma
     function izdaniTokeni() public {
         // Samo vlasnik može pozvati ovu funkciju
         require(msg.sender == owner, "ovu funkciju poziva samo vlasnik");
