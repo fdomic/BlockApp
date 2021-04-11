@@ -12,9 +12,9 @@ contract TokenFarma{ //Pametni ugovor
     DaiToken public daiToken;
 
     address[] public stakers;
-    mapping(address => uint) public stakingBalance;
-    mapping(address => bool) public hasStaked;
-    mapping(address => bool) public isStaking;
+    mapping(address => uint) public ulogStanje;
+    mapping(address => bool) public uzeto;
+    mapping(address => bool) public jeUzeto;
 
     constructor(DappToken _dappToken, DaiToken _daiToken) public {
         dappToken = _dappToken;
@@ -30,22 +30,22 @@ contract TokenFarma{ //Pametni ugovor
         daiToken.transferFrom(msg.sender, address(this), _amount);
 
         // Ažurirajte stanje uloga
-        stakingBalance[msg.sender] = stakingBalance[msg.sender] + _amount;
+        ulogStanje[msg.sender] = ulogStanje[msg.sender] + _amount;
 
         // Dodajte korisnika u niz samo ako već nije uložio
-        if(!hasStaked[msg.sender]) {
+        if(!uzeto[msg.sender]) {
             stakers.push(msg.sender);
         }
 
         // Ažuriranje statusa isplate
-        isStaking[msg.sender] = true;
-        hasStaked[msg.sender] = true;
+        jeUzeto[msg.sender] = true;
+        uzeto[msg.sender] = true;
     }
 
     // Povrat tokena
     function povratTokena() public {
         // Dohvati stanje uloga tokena
-        uint balance = stakingBalance[msg.sender];
+        uint balance = ulogStanje[msg.sender];
 
         // Zahtijevajte iznos veći od 0
         require(balance > 0, "iznos ne moze biti nula");
@@ -54,10 +54,10 @@ contract TokenFarma{ //Pametni ugovor
         daiToken.transfer(msg.sender, balance);
 
         // resetirati stanje ulaganja
-        stakingBalance[msg.sender] = 0;
+        ulogStanje[msg.sender] = 0;
 
         // Azuriraj status ulaganja
-        isStaking[msg.sender] = false;
+        jeUzeto[msg.sender] = false;
     }
 
     // davanje TokenFarma
@@ -68,7 +68,7 @@ contract TokenFarma{ //Pametni ugovor
         // daj tokene svim ulagacima
         for (uint i=0; i<stakers.length; i++) {
             address recipient = stakers[i];
-            uint balance = stakingBalance[recipient];
+            uint balance = ulogStanje[recipient];
             if(balance > 0) {
                 dappToken.transfer(recipient, balance);
             }

@@ -47,7 +47,7 @@ contract('TokenFarma', ([vlasnik, ulagac]) => {
         })
     })
 
-    it('ugovor ima tokene', async () => {
+  it('ugovor ima tokene', async () => {
       let balance = await dappToken.balanceOf(tokenFarm.address)
       assert.equal(balance.toString(), tokens('1000000'))
     })
