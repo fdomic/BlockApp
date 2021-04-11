@@ -10,7 +10,7 @@ function tokens(n) {
   return web3.utils.toWei(n, 'ether');
 }
 
-contract('TokenFarma', ([owner, investor]) => {
+contract('TokenFarma', ([vlasnik, ulagac]) => {
   let daiToken, dappToken, tokenFarm
 
   before(async () => {
@@ -22,8 +22,8 @@ contract('TokenFarma', ([owner, investor]) => {
     // Transfer all Dapp tokens to farm (1 million)
     await dappToken.transfer(tokenFarm.address, tokens('1000000'))
 
-    // Send tokens to investor
-    await daiToken.transfer(investor, tokens('100'), { from: owner })
+    // Send tokens to ulagac
+    await daiToken.transfer(ulagac, tokens('100'), { from: vlasnik })
   })
 
   describe('Mock DAI razvrstavanje', async () => {
@@ -54,13 +54,55 @@ contract('TokenFarma', ([owner, investor]) => {
 
     describe('Farmanje tokena', async () => {
 
-      it('rewards investors for staking mDai tokens', async () => {
+      it('nagrada ulagacu za ulaganje u mDai token', async () => {
         let result
   
-        // Check investor balance before staking
-        result = await daiToken.balanceOf(investor)
-        assert.equal(result.toString(), tokens('100'), ' (Mock DAI)ispravi stanje racuna prije ulaganja')
-  
+        // Check ulagac balance before staking
+        result = await daiToken.balanceOf(ulagac)
+        assert.equal(result.toString(), tokens('100'), ' Mock DAI  ispravi stanje racuna prije ulaganja')
+        
+        //  Mock DAI ulog tokena
+        await daiToken.approve(tokenFarm.address, tokens('100'), { from: ulagac })
+        await tokenFarm.ulogTokena(tokens('100'), { from: ulagac })
+
+        // Provjerite rezultat ulaganja
+        result = await daiToken.balanceOf(ulagac)
+        assert.equal(result.toString(), tokens('0'), 'ulagac Mock DAI-a , stanje racuna tocno poslje uloga ')
+
+        result = await daiToken.balanceOf(tokenFarm.address)
+        assert.equal(result.toString(), tokens('100'), 'Token Farma Mock DAI, stanje tocno poslje uloga ')
+
+        result = await tokenFarm.stakingBalance(ulagac)
+        assert.equal(result.toString(), tokens('100'), 'ulagac, stanje tocno poslje uloga')
+
+        result = await tokenFarm.isStaking(ulagac)
+        assert.equal(result.toString(), 'true', 'ulagac stanje tocno poslje uloga')
+
+        // Izdavanje Tokena
+        await tokenFarm.izdaniTokeni({ from: vlasnik })
+
+        // Prvojeri balans poslje izdavanje tokena
+        result = await dappToken.balanceOf(ulagac)
+        assert.equal(result.toString(), tokens('100'), 'ulagac DApp Token stanje novcanika je tocan poslje izdavanja tokena')
+
+      // Ensure that only onwer can issue tokens
+      await tokenFarm.izdaniTokeni({ from: ulagac }).should.be.rejected;
+
+      // Unstake tokens
+      await tokenFarm.povratTokena({ from: ulagac })
+
+      // Check results after unstaking
+      result = await daiToken.balanceOf(ulagac)
+      assert.equal(result.toString(), tokens('100'), 'ulagac Mock DAI stanje racuna tocno poslje uloga')
+
+      result = await daiToken.balanceOf(tokenFarm.address)
+      assert.equal(result.toString(), tokens('0'), 'Token Farma Mock DAI stanje tocno poslje uloga')
+
+      result = await tokenFarm.stakingBalance(ulagac)
+      assert.equal(result.toString(), tokens('0'), 'ulagac, stanje tocno poslje uloga')
+
+      result = await tokenFarm.isStaking(ulagac)
+      assert.equal(result.toString(), 'false', 'ulagac stanje uloga tocno poslje uloga')
 
       
 
